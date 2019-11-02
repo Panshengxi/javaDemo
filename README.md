@@ -17,3 +17,4 @@ The following guides illustrate how to use some features concretely:
 
 * [Managing Transactions](https://spring.io/guides/gs/managing-transactions/)
 
+* Detail in file pom.xml
