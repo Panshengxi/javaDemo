@@ -19,7 +19,7 @@ public class RoleController {
 
     @GetMapping(value = "/findAll")
     @ResponseBody
-    public List<Role> findAll(){
+    public List<Role> findAll() {
         return mServiceImpl.findAll();
     }
 

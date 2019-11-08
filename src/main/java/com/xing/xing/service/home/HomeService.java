@@ -24,8 +24,8 @@ public class HomeService {
         /**
          * json对象转化为Java对象
          */
-        CustomParams customParams = (CustomParams)JSONObject.toJavaObject(jsonObject,CustomParams.class);
+        CustomParams customParams = (CustomParams) JSONObject.toJavaObject(jsonObject, CustomParams.class);
         HomeInfo homeInfo = mJpa.findByPlatform(customParams.getPlatform());
-        return result.getResultData("获取首页数据信息！", 100,homeInfo );
+        return result.getResultData("获取首页数据信息！", 100, homeInfo);
     }
 }

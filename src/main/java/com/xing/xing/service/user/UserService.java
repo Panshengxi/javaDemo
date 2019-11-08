@@ -8,6 +8,7 @@ import com.xing.xing.repository.UserJpa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Service
@@ -33,8 +34,10 @@ public class UserService {
      */
     public void updateByUsername(String name, Token token) {
         User record = mJpa.findByUserName(name);
+        Long time = new Date().getTime();
         // 直接修改这个record的内容
         record.setCk(token.getCk());
+        record.setLoginTime(time);
         mJpa.save(record);
     }
 
@@ -85,6 +88,10 @@ public class UserService {
         return result;
     }
 
+    public void deleteCk() throws Exception {
+
+    }
+
     /**
      * 检验是否有该用户
      *
@@ -112,6 +119,7 @@ public class UserService {
     public Result register(User user) throws Exception {
         user.setUserName(user.getMobile());
         User record = mJpa.save(user);
+        System.out.println(record.toString()+"-----------------------");
         if (record.toString() == "Optional.empty") {
             result = result.getResultData("注册失败！", 102, null);
         } else {
@@ -119,8 +127,8 @@ public class UserService {
             Token token = new Token();
             token.setCk(str);
             token.setUserName(user.getUserName());
-            result = result.getResultData("注册成功！", 100, token);
             updateByUsername(user.getUserName(), token);
+            result = result.getResultData("注册成功！", 100, token);
         }
         return result;
     }

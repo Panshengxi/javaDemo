@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "homeinfo")
-public class HomeInfo implements Serializable{
+public class HomeInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -38,7 +38,7 @@ public class HomeInfo implements Serializable{
         return jzdgMatchList;
     }
 
-    public void setJzdgMatchList(String jzdgMatchList){
+    public void setJzdgMatchList(String jzdgMatchList) {
         this.jzdgMatchList = jzdgMatchList;
     }
 

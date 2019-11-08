@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "role")
-public class Role implements Serializable{
+public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -17,7 +17,7 @@ public class Role implements Serializable{
     @Column(name = "alias")
     private String alias;
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 

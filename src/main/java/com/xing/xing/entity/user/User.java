@@ -29,6 +29,9 @@ public class User implements Serializable {
     @Column(name = "isTodaySign")
     private String isTodaySign;
 
+    @Column(name = "loginTime")
+    private Long loginTime;
+
     public void setMobile(String sno) {
         this.mobile = sno;
     }
@@ -77,6 +80,14 @@ public class User implements Serializable {
 
     public String getIsTodaySign() {
         return isTodaySign;
+    }
+
+    public void setLoginTime(Long loginTime) {
+        this.loginTime = loginTime;
+    }
+
+    public Long getLoginTime() {
+        return loginTime;
     }
 
     @Override
